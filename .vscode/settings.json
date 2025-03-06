@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "server.h": "c",
+        "signal.h": "c",
+        "unistd.h": "c"
+    }
+}

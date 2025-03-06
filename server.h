@@ -6,11 +6,15 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:33:56 by hdazia            #+#    #+#             */
-/*   Updated: 2025/03/06 11:34:30 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/06 14:24:05 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SERVER_H
 #define SERVER_H
+
+
+# include <signal.h>
+# include <unistd.h>
 
 #endif
