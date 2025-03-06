@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:34:37 by hdazia            #+#    #+#             */
-/*   Updated: 2025/03/06 14:17:56 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/06 23:14:58 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int ft_atoi(char *str)
     while(str[i] >= '0' && str[i] <= '9')
     {
         rs = rs * 10 + str[i] - '0';
+        if (rs > INT_MAX)
+            return (-1);
         i++;
     }
     return (rs);

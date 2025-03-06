@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:34:31 by hdazia            #+#    #+#             */
-/*   Updated: 2025/03/06 22:41:56 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/06 23:16:23 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,12 @@ int main(int argc , char **argv)
     
     printf("the SERVER PID is : %d", getpid());
     
-    sg.sa_sigaction = handel_signal;
+    sg.sa_sigaction = &handel_signal;
     sg.sa_flags = SA_SIGINFO;
     
-    sigaction(SIGUSR1, handel_signal, NULL);
-    sigaction(SIGUSR2, handel_signal, NULL);
+    sigaction(SIGUSR1, &sg, NULL);
+    sigaction(SIGUSR2, &sg, NULL);
+    while(1)
+        pause();
     
 }
