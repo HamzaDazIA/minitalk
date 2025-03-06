@@ -6,13 +6,15 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:33:02 by hdazia            #+#    #+#             */
-/*   Updated: 2025/03/06 11:33:50 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/06 12:48:03 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # ifndef CLIENT_H
 # define CLIENT_H
 
+#include <signal.h>
+#include <unistd.h>
 
 
 #endif
