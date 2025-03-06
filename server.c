@@ -6,19 +6,19 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:34:31 by hdazia            #+#    #+#             */
-/*   Updated: 2025/03/06 15:24:18 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/06 20:59:05 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "server.h"
 
-void handel_signal(int, siginfo_t *info, void *uap)
+void handler(int sig, siginfo_t *info, void *ucontext)
 {
-    (void)uap;
+    (void)ucontext;
     static int pid;
     static unsigned char c;
     int i;
-    int bit;
+    static int bit;
 
     bit = 0;
     i = 0;
@@ -29,8 +29,15 @@ void handel_signal(int, siginfo_t *info, void *uap)
         pid = info->si_pid;
         c = 0;
     }
-    while(i < 8)
-    
+    if(sig == SIGUSR1)
+        c |= (1 << bit);
+    bit++;
+    if(bit == 8)
+    {
+        write(1, &c, 1);
+        c = 0;
+        bit = 0;
+    }
 }
 
 int main(int argc , char **argv)
