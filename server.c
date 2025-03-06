@@ -6,13 +6,13 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:34:31 by hdazia            #+#    #+#             */
-/*   Updated: 2025/03/06 20:59:05 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/06 22:41:56 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "server.h"
 
-void handler(int sig, siginfo_t *info, void *ucontext)
+void handel_signal(int sig, siginfo_t *info, void *ucontext)
 {
     (void)ucontext;
     static int pid;
@@ -47,7 +47,7 @@ int main(int argc , char **argv)
     printf("the SERVER PID is : %d", getpid());
     
     sg.sa_sigaction = handel_signal;
-    sa.sa_flags = SA_SIGINFO;
+    sg.sa_flags = SA_SIGINFO;
     
     sigaction(SIGUSR1, handel_signal, NULL);
     sigaction(SIGUSR2, handel_signal, NULL);

@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:33:56 by hdazia            #+#    #+#             */
-/*   Updated: 2025/03/06 14:24:05 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/06 22:42:04 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@
 
 # include <signal.h>
 # include <unistd.h>
+#include <stdio.h>
 
 #endif
