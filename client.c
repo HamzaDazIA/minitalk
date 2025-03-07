@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:34:37 by hdazia            #+#    #+#             */
-/*   Updated: 2025/03/07 04:05:15 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/07 06:05:44 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_atoi(char *str)
 
 	rs = 0;
 	i = 0;
-	while (str[i] >= 9 && str[i] <= 13)
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 		return (-1);
@@ -32,11 +32,36 @@ int	ft_atoi(char *str)
 			return (-1);
 		i++;
 	}
-	while (str[i] >= 9 && str[i] <= 13)
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
 	if (str[i] != '\0')
 		return (-1);
 	return (rs);
+}
+
+void	check_argement(int argc, char **argv)
+{
+	int	i;
+	int	j;
+
+	j = 0;
+	i = 0;
+	if (argc != 3 || argv[2][0] == '\0' || argv[1][0] == '\0')
+	{
+		ft_printf("Error: invalide number of arguments\n");
+		ft_printf("Usage: ./client [PID] [string] [signal]\n");
+		exit(1);
+	}
+	while ((argv[2][i] >= 9 && argv[2][i] <= 13) || argv[2][i] == 32)
+		i++;
+	while ((argv[1][j] >= 9 && argv[1][j] <= 13) || argv[1][j] == 32)
+		j++;
+	if (argv[1][j] == '\0' || argv[2][i] == '\0')
+	{
+		ft_printf("Error: invalide number of arguments\n");
+		ft_printf("Usage: ./client [PID] [string] [signal]\n");
+		exit(1);
+	}
 }
 
 void	send_signsl(char c, int pid)
@@ -70,12 +95,7 @@ int	main(int argc, char **argv)
 	int	pid;
 	int	i;
 
-	if (argc != 3)
-	{
-		ft_printf("Error: invalide number of arguments\n");
-		ft_printf("Usage: ./client [PID] [string] [signal]\n");
-		return (1);
-	}
+	check_argement(argc, argv);
 	pid = ft_atoi(argv[1]);
 	i = 0;
 	if (pid == -1)
@@ -88,6 +108,5 @@ int	main(int argc, char **argv)
 		send_signsl(argv[2][i], pid);
 		i++;
 	}
-	send_signsl('\0', pid);
 	return (0);
 }
