@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:34:37 by hdazia            #+#    #+#             */
-/*   Updated: 2025/03/06 23:14:58 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/06 23:53:45 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,10 @@ int ft_atoi(char *str)
             return (-1);
         i++;
     }
+    while(str[i] >= 9 && str[i] <= 13)
+        i++;
+    if (str[i] != '\0')
+        return (-1);
     return (rs);
 }
 void send_signsl(char c, int pid)
@@ -47,13 +51,13 @@ void send_signsl(char c, int pid)
         {
             if (kill(pid, SIGUSR1) < 0)
             {
-                printf("Error: signal not sent\n");
+                ft_printf("Error: signal not sent\n");
                 exit(1);
             }
         }
         else if (kill(pid, SIGUSR2) < 0)
         {
-            printf("Error: signal not sent\n");
+            ft_printf("Error: signal not sent\n");
             exit(1);
         }
         usleep(200);
@@ -68,15 +72,15 @@ int main(int argc, char **argv)
     
     if (argc != 3)
     {
-        printf("Error: invalide number of arguments\n");
-        printf("Usage: ./client [PID] [string] [signal]\n");
+        ft_printf("Error: invalide number of arguments\n");
+        ft_printf("Usage: ./client [PID] [string] [signal]\n");
         return (1);
     }
     pid = ft_atoi(argv[1]);
     i = 0;
     if (pid == -1)
     {
-        printf("Error: invalide PID\n");
+        ft_printf("Error: invalide PID\n");
         return (1);
     }
     while (argv[2][i] != '\0')

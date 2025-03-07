@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:34:31 by hdazia            #+#    #+#             */
-/*   Updated: 2025/03/06 23:16:23 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/06 23:50:16 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ void handel_signal(int sig, siginfo_t *info, void *ucontext)
     }
 }
 
-int main(int argc , char **argv)
+int main()
 {
    struct sigaction sg;
     
-    printf("the SERVER PID is : %d", getpid());
+    ft_printf("the SERVER PID is : %d", getpid());
     
     sg.sa_sigaction = &handel_signal;
     sg.sa_flags = SA_SIGINFO;
