@@ -6,13 +6,13 @@
 #    By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 18:17:42 by akella            #+#    #+#              #
-#    Updated: 2025/03/06 23:42:22 by hdazia           ###   ########.fr        #
+#    Updated: 2025/03/07 01:16:03 by hdazia           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -g
 
 RM			= rm -rf
 
