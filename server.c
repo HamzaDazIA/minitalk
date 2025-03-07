@@ -6,7 +6,7 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:34:31 by hdazia            #+#    #+#             */
-/*   Updated: 2025/03/07 01:35:25 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/07 04:03:42 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int	main(void)
 	ft_printf("Server PID: %d\n", getpid());
 	sa.sa_sigaction = handle_signal;
 	sa.sa_flags = SA_SIGINFO;
-	
 	if (sigaction(SIGUSR1, &sa, NULL) == -1)
 	{
 		ft_printf("Error setting up SIGUSR1 handler\n");

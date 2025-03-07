@@ -6,17 +6,16 @@
 /*   By: hdazia <hdazia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:33:56 by hdazia            #+#    #+#             */
-/*   Updated: 2025/03/06 23:49:20 by hdazia           ###   ########.fr       */
+/*   Updated: 2025/03/07 04:04:35 by hdazia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SERVER_H
-#define SERVER_H
-
+# define SERVER_H
 
 # include <signal.h>
 # include <unistd.h>
-#include <stdio.h>
+# include <stdio.h>
 
 int	ft_printf(const char *counst, ...);
 
